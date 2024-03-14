@@ -38,7 +38,8 @@ df_final <- df_final %>%
 
 df_final <- df_final %>%
         mutate(across(v182caes:v183cno, ~as.character(zap_labels(.x)))) %>%
-        mutate(carac = str_sub(v183cno, start=1, end=3),
+        mutate(carac = str_sub(v183cno, start=1, end=2),
+               jerarq = str_sub(v183cno, start=3, end=3), 
                tecn = str_sub(v183cno, start=4, end=4),
                calif = str_sub(v183cno, start=5, end=5),
                ocup_final = str_c(ocupacion, tareas, tecno, sep=". "))
